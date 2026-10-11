@@ -3,7 +3,43 @@
 //  the site — no other file needs to change.
 //  Sections with an empty list are hidden automatically.
 // ─────────────────────────────────────────────────────────────
-window.PORTFOLIO = {
+
+export type Category = "web" | "mobile" | "ml" | "python";
+
+export interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  category: Category;
+  featured?: boolean;
+  repo?: string;
+  live?: string;
+  private?: boolean;
+}
+
+export interface Experience {
+  role: string;
+  company: string;
+  period: string;
+  location?: string;
+  points?: string[];
+}
+
+export interface Education {
+  degree: string;
+  school: string;
+  period: string;
+  note?: string;
+}
+
+export interface Certification {
+  name: string;
+  issuer: string;
+  year: string;
+  url?: string;
+}
+
+export const portfolio = {
   name: "Akshay Khobragade",
   initials: "AK",
   // TODO: confirm your headline (copy it from LinkedIn)
@@ -12,8 +48,8 @@ window.PORTFOLIO = {
     "I build fast, polished web and mobile apps — from real-time video and chat platforms to learning management systems used by students and schools.",
   location: "India", // TODO: city, e.g. "Pune, India"
   availability: "Open to opportunities",
-  photo: "", // TODO: e.g. "assets/profile.jpg" — falls back to initials
-  resume: "", // TODO: e.g. "assets/Akshay_Khobragade_Resume.pdf"
+  photo: "", // TODO: put a photo in /public and set e.g. "profile.jpg" — falls back to initials
+  resume: "", // TODO: put your résumé in /public and set e.g. "Akshay_Khobragade_Resume.pdf"
 
   links: {
     github: "https://github.com/AkshayJod",
@@ -33,7 +69,7 @@ window.PORTFOLIO = {
   ],
 
   skills: [
-    { group: "Frontend", items: ["React", "TypeScript", "JavaScript", "Vite", "HTML5", "CSS3", "Responsive UI"] },
+    { group: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "Vite", "HTML5", "CSS3", "Responsive UI"] },
     { group: "Mobile", items: ["React Native", "Expo"] },
     { group: "Backend", items: ["Python", "Django", "Node.js", "WebSockets", "REST APIs"] },
     { group: "Data & ML", items: ["Machine Learning", "Jupyter", "Pandas", "scikit-learn"] },
@@ -49,8 +85,6 @@ window.PORTFOLIO = {
       tags: ["React Native", "Expo", "TypeScript"],
       category: "mobile",
       featured: true,
-      repo: "",
-      live: "",
       private: true,
     },
     {
@@ -60,8 +94,6 @@ window.PORTFOLIO = {
       tags: ["React", "Vite", "Vercel"],
       category: "web",
       featured: true,
-      repo: "",
-      live: "",
       private: true,
     },
     {
@@ -71,7 +103,6 @@ window.PORTFOLIO = {
       category: "web",
       featured: true,
       repo: "https://github.com/AkshayJod/FusionMeet",
-      live: "",
     },
     {
       title: "Real-time Chat App",
@@ -79,7 +110,6 @@ window.PORTFOLIO = {
       tags: ["Python", "Django", "WebSockets"],
       category: "python",
       repo: "https://github.com/AkshayJod/Realtime_chatapp",
-      live: "",
     },
     {
       title: "Breast Cancer Detection",
@@ -88,7 +118,6 @@ window.PORTFOLIO = {
       tags: ["Python", "Machine Learning", "Jupyter"],
       category: "ml",
       repo: "https://github.com/AkshayJod/BreastCancerDetection",
-      live: "",
     },
     {
       title: "FinTejo",
@@ -96,7 +125,6 @@ window.PORTFOLIO = {
       tags: ["JavaScript"],
       category: "web",
       repo: "https://github.com/AkshayJod/FinTejo",
-      live: "",
     },
     {
       title: "Recipe Finder",
@@ -104,7 +132,6 @@ window.PORTFOLIO = {
       tags: ["JavaScript"],
       category: "web",
       repo: "https://github.com/AkshayJod/Recipe",
-      live: "",
     },
     {
       title: "Discord Bot",
@@ -112,7 +139,6 @@ window.PORTFOLIO = {
       tags: ["Python", "discord.py"],
       category: "python",
       repo: "https://github.com/AkshayJod/DiscordBot",
-      live: "",
     },
     {
       title: "Netflix Clone",
@@ -120,7 +146,6 @@ window.PORTFOLIO = {
       tags: ["HTML", "CSS"],
       category: "web",
       repo: "https://github.com/AkshayJod/NetflixClone",
-      live: "",
     },
     {
       title: "Nike Landing Page",
@@ -128,19 +153,18 @@ window.PORTFOLIO = {
       tags: ["HTML", "CSS"],
       category: "web",
       repo: "https://github.com/AkshayJod/NikeDesign",
-      live: "",
     },
-  ],
+  ] satisfies Project[] as Project[],
 
   // TODO: add from LinkedIn. Example entry:
   // { role: "Software Developer", company: "Company", period: "Jan 2025 — Present",
   //   location: "Remote", points: ["What you built", "Impact / numbers"] }
-  experience: [],
+  experience: [] as Experience[],
 
   // TODO: add from LinkedIn. Example entry:
   // { degree: "B.E. Computer Engineering", school: "College", period: "2020 — 2024", note: "CGPA 8.5" }
-  education: [],
+  education: [] as Education[],
 
   // TODO: optional. Example: { name: "AWS Cloud Practitioner", issuer: "Amazon", year: "2025", url: "" }
-  certifications: [],
+  certifications: [] as Certification[],
 };

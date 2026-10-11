@@ -14,8 +14,8 @@
   --shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
   --radius: 18px;
   --nav-h: 72px;
-  --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font: var(--font-inter), system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
   color-scheme: dark;
 }
 :root[data-theme="light"] {
